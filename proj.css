@@ -1,0 +1,21 @@
+
+.home img{
+        width: 50%;
+        object-fit: cover;
+}
+.home {
+    position: relative;
+    text-align: center;
+    color: white;
+  }
+  .container {
+    position: absolute;
+    top: 40px;
+    right: 40px;
+  }
+  .container  a{
+    padding: 20px;
+    font-size: 20px;
+    color: white;
+    text-decoration: none;
+  }

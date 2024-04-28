@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Restaurant Rating</title>
+<style>
+  .stars-container {
+    text-align: center;
+    margin-bottom: 20px;
+    background-color: #f2f2f2; /* Added background color */
+    padding: 20px; /* Added padding for spacing */
+  }
+  .stars {
+    font-size: 40px; /* Increased size */
+    cursor: pointer;
+    margin: 0 10px; /* Added margin for spacing */
+  }
+  .stars:hover {
+    color: orange;
+  }
+  #submitBtn {
+    display: block;
+    margin: 0 auto;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: rgb(39, 39, 30);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  #submitBtn:hover {
+    background-color: #45a049;
+  }
+</style>
+</head>
+<body>
+
+<div class="stars-container">
+  <span class="stars" onclick="rateRestaurant(1)">★</span>
+  <span class="stars" onclick="rateRestaurant(2)">★</span>
+  <span class="stars" onclick="rateRestaurant(3)">★</span>
+  <span class="stars" onclick="rateRestaurant(4)">★</span>
+  <span class="stars" onclick="rateRestaurant(5)">★</span>
+</div>
+
+<a href=""></a><button id="submitBtn" onclick="submitRating()">Submit Rating</button>
+
+<p id="ratingMessage"></p>
+
+<script>
+  let userRating = 0;
+
+  function rateRestaurant(rating) {
+    userRating = rating;
+    updateRatingMessage();
+  }
+
+  function submitRating() {
+    if (userRating === 0) {
+      alert("Please select a rating before submitting.");
+      return;
+    }
+    // Here you can submit the rating to your backend or perform any other action.
+    alert("Rating submitted: " + userRating);
+  }
+
+  function updateRatingMessage() {
+    const message = `You rated the restaurant ${userRating} stars. Thank you for your feedback!`;
+    document.getElementById('ratingMessage').textContent = message;
+  }
+</script>
+
+</body>
+</html>

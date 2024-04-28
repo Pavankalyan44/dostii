@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+          .restaurants {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 80px; /* Adjusted to accommodate fixed navbar */
+  }
+
+  .restaurant {
+    width: 30%;
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    text-align: center;
+  }
+
+  .restaurant img {
+    width: 100%;
+    height: 650px;
+    object-fit: cover;
+    margin-bottom: 10px;
+  }
+
+  @media (max-width: 768px) {
+    .restaurant {
+      width: 45%;
+    }
+  }
+
+  @media (max-width: 576px) {
+    .restaurant {
+      width: 100%;
+    }
+  }
+    </style>
+</head>
+<body>
+    <div class="restaurants">
+  <div class="restaurant">
+    <img src="straberry.jpg" alt="Restaurant 1">
+    <h3>straberry moctail</h3>
+    <p>Rating: 4.5</p>
+    <p class="price">Price:200</p>
+  </div>
+  <div class="restaurant">
+   <img src="blue ladoon.jpg" alt="Restaurant 2">
+    <h3>Blue Langoon</h3>
+    <p>Rating: 4.2</p>
+    <p class="price">Price:300</p>
+  </div>
+  <div class="restaurant">
+    <img src="Tri colored mocktail.jpg" alt="Restaurant 3">
+    <h3>Tri Colored Mocktail</h3>
+    <p>Rating: 4.0</p>
+    <p class="price">Price:600</p>
+  </div> 
+  <div class="restaurants">
+  <div class="restaurant">
+    <img src="Tequila sunrise mocktail.jpg" alt="Restaurant 1">
+    <h3>Tequila sunrise mocktail</h3>
+    <p>Rating: 4.5</p>
+    <p class="price">Price:200</p>
+  </div>
+  <div class="restaurant">
+    <img src="color changing .jpg" alt="Restaurant 2">
+    <h3>Color changing butterfly pe</h3>
+    <p>Rating: 4.2</p>
+    <p class="price">Price:300</p>
+  </div>
+  <div class="restaurant">
+    <img src="dragon fruite mocktail.jpg" alt="Restaurant 3">
+    <h3>dragon fruit mocktail</h3>
+    <p>Rating: 4.0</p>
+    <p class="price">Price:600</p>
+  </div> 
+  <script>
+    // JavaScript code to handle click events and redirect to payment page with respective price
+    document.addEventListener('DOMContentLoaded', function() {
+        // Get all restaurant cards
+        const restaurantCards = document.querySelectorAll('.restaurant');
+
+        // Attach click event listener to each restaurant card
+        restaurantCards.forEach(function(card) {
+            card.addEventListener('click', function() {
+                // Get the price of the clicked restaurant
+                const price = parseFloat(card.querySelector('.price').textContent.split(":")[1]);
+
+                // Redirect to payment page with respective price
+                window.location.href = `payment.html?price=${price}`;
+            });
+        });
+    });
+</script>
+  
+</body>
+</html>

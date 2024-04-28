@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+          .restaurants {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 80px; /* Adjusted to accommodate fixed navbar */
+  }
+
+  .restaurant {
+    width: 30%;
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    text-align: center;
+  }
+
+  .restaurant img {
+    width: 100%;
+    height: 450px;
+    object-fit: cover;
+    margin-bottom: 10px;
+  }
+
+  @media (max-width: 768px) {
+    .restaurant {
+      width: 45%;
+    }
+  }
+
+  @media (max-width: 576px) {
+    .restaurant {
+      width: 100%;
+    }
+  }
+    </style>
+</head>
+<body>
+    <div class="restaurants">
+  <div class="restaurant">
+    <img src="butter.jpg" alt="Restaurant 1">
+    <h3>butterscotch ice cream</h3>
+    <p>Rating: 4.5</p>
+    <p class="price">Price:200</p>
+  </div>
+  <div class="restaurant">
+    <img src="chocolate.jpg" alt="Restaurant 2">
+    <h3>chocolate ice cream</h3>
+    <p>Rating: 4.2</p>
+    <p class="price">Price:300</p>
+  </div>
+  <div class="restaurant">
+    <img src="black .jpg" alt="Restaurant 3">
+    <h3>black current ice cream</h3>
+    <p>Rating: 4.0</p>
+    <p class="price">Price:600</p>
+  </div> 
+  <div class="restaurants">
+  <div class="restaurant">
+    <img src="straberry.jpg" alt="Restaurant 1">
+    <h3>strawberry</h3>
+    <p>Rating: 4.5</p>
+    <p class="price">Price:200</p>
+  </div>
+  <div class="restaurant">
+    <img src="blackforest.jpg  " alt="Restaurant 2">
+    <h3>black forrest ice cream</h3>
+    <p>Rating: 4.2</p>
+    <p class="price">Price:300</p>
+  </div>
+  <div class="restaurant">
+    <img src="rainbow.jpg" alt="Restaurant 3">
+    <h3>rainbow ice creams</h3>
+    <p>Rating: 4.0</p>
+    <p class="price">Price:600</p>
+  </div> 
+  <script>
+    // JavaScript code to handle click events and redirect to payment page with respective price
+    document.addEventListener('DOMContentLoaded', function() {
+        // Get all restaurant cards
+        const restaurantCards = document.querySelectorAll('.restaurant');
+
+        // Attach click event listener to each restaurant card
+        restaurantCards.forEach(function(card) {
+            card.addEventListener('click', function() {
+                // Get the price of the clicked restaurant
+                const price = parseFloat(card.querySelector('.price').textContent.split(":")[1]);
+
+                // Redirect to payment page with respective price
+                window.location.href = `payment.html?price=${price}`;
+            });
+        });
+    });
+</script>
+  
+</body>
+</html>
