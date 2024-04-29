@@ -351,20 +351,21 @@ input[type="radio"] {
                         <div class="d-flex flex-column dis" id="payment-summary">
                             <!-- Payment summary will be dynamically added here -->
                         </div>
-                       <a href="thankyou.html"><button type="submit" class="btn btn-primary mt-2">Pay</button></a> 
+                        <button type="submit" class="btn btn-primary mt-2" id="payButton">Pay</button>
+
                     </div>
                 </form>
             </div>
         </div>
     </div>
 
-    <script>
-        // Function to extract price from URL parameters
-        
-        function getPriceFromURL() {
-            const urlParams = new URLSearchParams(window.location.search);
-            return parseFloat(urlParams.get('price')) || 0;
-        }
+    
+
+<script>
+document.getElementById("payButton").addEventListener("click", function() {
+    window.location.href = "thankyou.html";
+});
+
 
         // Function to calculate and display payment summary
         function displayPaymentSummary() {

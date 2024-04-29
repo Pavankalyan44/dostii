@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Submit Button Redirect</title>
+</head>
+<body>
+
+<form id="myForm">
+    <!-- Your form inputs go here -->
+    <input type="text" name="username" placeholder="Username">
+    <input type="password" name="password" placeholder="Password">
+    
+    <!-- Submit button -->
+    <input type="submit" value="Submit" id="submitButton">
+</form>
+
+<!-- Anchor tag for the page to redirect to -->
+<a href="http://127.0.0.1:5500/thankyou.html" id="redirectAnchor" style="display: none;"></a>
+
+<script>
+document.getElementById("myForm").addEventListener("submit", function(event) {
+    event.preventDefault(); // Prevent the default form submission
+
+    // Redirect to the specified page
+    var redirectUrl = document.getElementById("redirectAnchor").href;
+    window.location.href = redirectUrl;
+});
+</script>
+
+</body>
+</html>
