@@ -1,3 +1,4 @@
+@ -0,0 +1,397 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -325,7 +326,7 @@ input[type="radio"] {
                     <p class="fw-bold">Payment Details</p>
                     <p class="dis mb-3">Complete your purchase by providing your payment details</p>
                 </div>
-                <form  method="POST" id="payment-form">
+                <form action="thankyou.html" id="payment-form">
                     <div class="mb-3">
                         <p class="dis fw-bold mb-2">Email address</p>
                         <input class="form-control" type="email" name="email" required>
@@ -351,21 +352,21 @@ input[type="radio"] {
                         <div class="d-flex flex-column dis" id="payment-summary">
                             <!-- Payment summary will be dynamically added here -->
                         </div>
-                        <button type="submit" class="btn btn-primary mt-2" id="payButton">Pay</button>
-
+                        <a href="thankyou.html"><button type="submit" class="btn btn-primary mt-2">Pay</button></a> 
                     </div>
                 </form>
+                
             </div>
         </div>
     </div>
 
-    
-
-<script>
-document.getElementById("payButton").addEventListener("click", function() {
-    window.location.href = "thankyou.html";
-});
-
+    <script>
+        // Function to extract price from URL parameters
+        
+        function getPriceFromURL() {
+            const urlParams = new URLSearchParams(window.location.search);
+            return parseFloat(urlParams.get('price')) || 0;
+        }
 
         // Function to calculate and display payment summary
         function displayPaymentSummary() {
